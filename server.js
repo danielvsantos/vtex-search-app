@@ -29,7 +29,7 @@ app.post("/", (req, res) => {
 
 })
 
-app.listen(port, () => {
+app.listen(process.env.PORT, () => {
     console.log(`Server up and running on port ${port}`);
 })
 
