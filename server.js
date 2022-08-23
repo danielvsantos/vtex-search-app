@@ -2,7 +2,7 @@ const express = require ("express");
 const bodyParser = require("body-parser");
 const request = require('request');
 const app = express();
-const port = 3000;
+const port = 8000;
 
 app.use(bodyParser.urlencoded({extended: true}));
 
@@ -36,7 +36,7 @@ app.post("/", (req, res) => {
 
 })
 
-app.listen(port, () => {
+app.listen(pprocess.env.PORT, () => {
     console.log(`Server up and running on port ${port}`);
 })
 
