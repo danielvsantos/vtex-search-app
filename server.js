@@ -36,7 +36,7 @@ app.post("/", (req, res) => {
 
 })
 
-app.listen(pprocess.env.PORT, () => {
+app.listen(process.env.PORT, () => {
     console.log(`Server up and running on port ${port}`);
 })
 
