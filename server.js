@@ -2,7 +2,7 @@ const express = require ("express");
 const bodyParser = require("body-parser");
 const request = require('request');
 const app = express();
-const port = 8000;
+const port = 3000;
 
 app.use(bodyParser.urlencoded({extended: true}));
 
@@ -23,13 +23,20 @@ app.post("/", (req, res) => {
       };
     request(options, function (error, response, body) {
         if (error) throw new Error(error);
-        res.send(body);
+        var searchResults = JSON.parse(body);
+        var productName1 = searchResults[0].productName; 
+        var imageUrl = searchResults[0].items[0].images[0].imageUrl;
+        var priceItem1 = searchResults[0].items[0].sellers[0].commertialOffer.Price;
+        res.write (`<h1> ${productName1} </h1>`)
+        res.write(`<img src=${imageUrl} alt="" width="200px">`);
+        res.write(`<p>$ ${priceItem1} </p>`);
+        res.send();
       });
 
 
 })
 
-app.listen(process.env.PORT, () => {
+app.listen(port, () => {
     console.log(`Server up and running on port ${port}`);
 })
 
