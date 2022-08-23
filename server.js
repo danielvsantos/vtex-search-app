@@ -11,8 +11,9 @@ app.get("/", (req, res) => {
 })
 
 app.post("/", (req, res) => {
+    var accountName = req.body.accountName;
     var searchTerm = req.body.search;
-    var urlWithTerm = "https://groceriesspain.vtexcommercestable.com.br/api/catalog_system/pub/products/search/" + searchTerm; 
+    var urlWithTerm = "https://"+ accountName +".vtexcommercestable.com.br/api/catalog_system/pub/products/search/" + searchTerm; 
     var options = {
         method: 'GET',
         url: urlWithTerm,
